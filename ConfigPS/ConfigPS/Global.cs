@@ -1,60 +1,42 @@
-﻿using System;
+﻿using System.Dynamic;
 using System.IO;
 using System.Management.Automation;
 using System.Reflection;
 
 namespace ConfigPS
 {
-    public class Global
+    public class Global : DynamicObject
     {
-        static bool firstTimeThru;
-        static PowerShell ps;
-        private static readonly string InitScript;
+        readonly PowerShell ps;
 
-        static Global()
+        public Global()
         {
-            InitScript = @"
+            var fileName = Path.GetFileName(Assembly.GetCallingAssembly().CodeBase);
+            var configFileName = fileName + ".ps1";
+            ps = PowerShell.Create();
+
+            if (File.Exists(configFileName))
+            {
+                const string initScript = @"
                         function Add-ConfigItem($name, $value)
                         {
                             Set-Variable -Name $name -Value $value -Scope global
                         }
                     ";
+
+                ps.AddScript(initScript);
+                ps.Invoke();
+
+                var profileScript = File.ReadAllText(configFileName);
+                ps.AddScript(profileScript);
+                ps.Invoke();
+            }
         }
 
-        public static T Get<T>(string name)
+        public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
-            if (!firstTimeThru)
-            {
-                var fileName = Path.GetFileName(Assembly.GetCallingAssembly().CodeBase);
-                var configFileName = fileName + ".ps1";
-
-                if (File.Exists(configFileName))
-                {
-                    ps = PowerShell.Create();
-                    
-                    ps.AddScript(InitScript);
-                    ps.Invoke();
-
-                    var profileScript = File.ReadAllText(configFileName);
-                    ps.AddScript(profileScript);
-                    ps.Invoke();
-                }
-                else
-                {
-                    return default(T);
-                }
-
-                firstTimeThru = true;
-            }
-
-            var getVariable = string.Format("(Get-Variable -name {0} -ErrorAction SilentlyContinue).Value -as [{1}]", name, typeof(T));
-            ps.AddScript(getVariable);
-
-            var r = ps.Invoke();
-
-            return r.Count == 1 ? 
-                Convert.ChangeType((dynamic)r[0].ImmediateBaseObject, typeof(T)) : 
-                default(T);
+            result = ps.Runspace.SessionStateProxy.GetVariable(binder.Name);
+            return true;
         }
     }
 }

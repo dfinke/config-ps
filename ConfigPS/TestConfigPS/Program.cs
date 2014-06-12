@@ -6,16 +6,24 @@ namespace TestConfigPS
     {
         static void Main()
         {
-            Console.WriteLine("Count: {0}", ConfigPS.Global.Get<int>("count"));
-            Console.WriteLine("Uri:   {0}", ConfigPS.Global.Get<Uri>("uri"));
+            dynamic global = new ConfigPS.Global();
 
-            for (var idx = 1; idx < 11; idx += 1)
+            Console.WriteLine("Count: {0}", global.count);
+            Console.WriteLine("Uri:   {0}", global.uri);
+
+            Console.WriteLine("Item1: {0}", global.item1);
+            Console.WriteLine("Item50: {0}", global.item50);
+            Console.WriteLine("Item51: {0}", global.item51);
+
+            foreach (var item in global.processes)
             {
-                Console.WriteLine("Item{0}: {1}", idx, ConfigPS.Global.Get<int>("item" + idx));
+                Console.WriteLine("{0}->{1}", item.ProcessName, item.HandleCount);
             }
 
-            Console.WriteLine("processes: {0}", ConfigPS.Global.Get<string>("processes"));
-            Console.WriteLine("services:  {0}", ConfigPS.Global.Get<string>("services"));
+            foreach (var item in global.json)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
