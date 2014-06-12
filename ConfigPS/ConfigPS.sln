@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigPS", "ConfigPS\ConfigPS.csproj", "{60797AB7-D1FA-4430-B3B0-2E31D396D524}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConfigPS", "TestConfigPS\TestConfigPS.csproj", "{C035DCEB-79E7-446B-BAE1-ADC3FEF2DEB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60797AB7-D1FA-4430-B3B0-2E31D396D524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60797AB7-D1FA-4430-B3B0-2E31D396D524}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60797AB7-D1FA-4430-B3B0-2E31D396D524}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60797AB7-D1FA-4430-B3B0-2E31D396D524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C035DCEB-79E7-446B-BAE1-ADC3FEF2DEB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C035DCEB-79E7-446B-BAE1-ADC3FEF2DEB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C035DCEB-79E7-446B-BAE1-ADC3FEF2DEB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C035DCEB-79E7-446B-BAE1-ADC3FEF2DEB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
