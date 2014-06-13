@@ -2,7 +2,7 @@ Inspired By
 -
 [Adam Ralph's config-r](https://github.com/adamralph/config-r)
 
-Here the console app is TestConfigPS.exe. So, create a PowerShell file along side it name TestConfigPS.exe.ps1. Reference ConfigPS.dll and your off to the races.
+Here the console app is TestConfigPS.exe. Create a PowerShell file along side it named TestConfigPS.exe.ps1. Reference ConfigPS.dll and your off to the races.
 
 The Config
 -
