@@ -9,10 +9,15 @@ namespace ConfigPS
     {
         readonly PowerShell ps;
 
-        public Global()
+
+        public Global(string configFileName = null)
         {
-            var fileName = Path.GetFileName(Assembly.GetCallingAssembly().CodeBase);
-            var configFileName = fileName + ".ps1";
+            if (configFileName == null)
+            {
+                var fileName = Path.GetFileName(Assembly.GetCallingAssembly().CodeBase);
+                configFileName = fileName + ".ps1";
+            }
+
             ps = PowerShell.Create();
 
             if (File.Exists(configFileName))
