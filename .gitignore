@@ -2,6 +2,8 @@ ConfigPS/ConfigPS/obj/
 ConfigPS/ConfigPS/bin/
 ConfigPS/TestConfigPS/obj/
 ConfigPS/TestConfigPS/bin/
+ConfigPS/UnitTestConfigPS/obj/
+ConfigPS/UnitTestConfigPS/bin/
 ConfigPS/ConfigPS/ConfigPS.dll.1.0.nupkg
 ConfigPS/ConfigPS/ConfigPS.nuspec
 ConfigPS/ConfigPS.v12.suo
