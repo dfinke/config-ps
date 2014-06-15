@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigPS", "ConfigPS\Config
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConfigPS", "TestConfigPS\TestConfigPS.csproj", "{C035DCEB-79E7-446B-BAE1-ADC3FEF2DEB0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestConfigPS", "UnitTestConfigPS\UnitTestConfigPS.csproj", "{5105DA00-57ED-453B-84E4-1C39D565DA77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C035DCEB-79E7-446B-BAE1-ADC3FEF2DEB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C035DCEB-79E7-446B-BAE1-ADC3FEF2DEB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C035DCEB-79E7-446B-BAE1-ADC3FEF2DEB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5105DA00-57ED-453B-84E4-1C39D565DA77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5105DA00-57ED-453B-84E4-1C39D565DA77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5105DA00-57ED-453B-84E4-1C39D565DA77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5105DA00-57ED-453B-84E4-1C39D565DA77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
