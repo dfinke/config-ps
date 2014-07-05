@@ -1,4 +1,5 @@
-﻿using ConfigPS;
+﻿using System;
+using ConfigPS;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestConfigPS
@@ -19,7 +20,7 @@ namespace UnitTestConfigPS
         {
             Assert.IsNotNull(global);
         }
-         
+
         [TestMethod]
         public void TestNoConfig()
         {
@@ -54,6 +55,21 @@ namespace UnitTestConfigPS
             dynamic g = new Global(configFile);
             var t = g.test;
             Assert.AreEqual(42, t);
+        }
+
+        [TestMethod]
+        public void TestUriConfig()
+        {
+            var configFile = System.IO.Directory.GetCurrentDirectory() + @"\..\..\UnitTestConfigPS.dll.ps1";
+
+            dynamic g = new Global(configFile);
+            
+            var t = g.uri;
+            
+            var uri = new Uri(@"http://www.microsoft.com");
+
+            Assert.AreEqual(uri.AbsolutePath, t.AbsolutePath);
+            Assert.AreEqual(uri.DnsSafeHost, t.DnsSafeHost);
         }
     }
 }
