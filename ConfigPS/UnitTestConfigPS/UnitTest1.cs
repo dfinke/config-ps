@@ -48,7 +48,7 @@ namespace UnitTestConfigPS
         }
 
         [TestMethod]
-        public void TestConfig()
+        public void TestSingleValue()
         {
             var configFile = System.IO.Directory.GetCurrentDirectory() + @"\..\..\UnitTestConfigPS.dll.ps1";
 
@@ -58,14 +58,27 @@ namespace UnitTestConfigPS
         }
 
         [TestMethod]
+        public void TestArray()
+        {
+            var configFile = System.IO.Directory.GetCurrentDirectory() + @"\..\..\UnitTestConfigPS.dll.ps1";
+
+            dynamic g = new Global(configFile);
+            var t = g.data;
+
+            Assert.IsNotNull(t);
+            Assert.AreEqual("Michael Jackson", t[0].Artist);
+            Assert.AreEqual("Thriller", t[0].name);
+        }
+
+        [TestMethod]
         public void TestUriConfig()
         {
             var configFile = System.IO.Directory.GetCurrentDirectory() + @"\..\..\UnitTestConfigPS.dll.ps1";
 
             dynamic g = new Global(configFile);
-            
+
             var t = g.uri;
-            
+
             var uri = new Uri(@"http://www.microsoft.com");
 
             Assert.AreEqual(uri.AbsolutePath, t.AbsolutePath);

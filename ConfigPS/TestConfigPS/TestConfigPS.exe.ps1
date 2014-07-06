@@ -7,3 +7,4 @@ Add-ConfigItem processes (ps  | Where handles -gt 700)     #
 Add-ConfigItem services  (gsv | Where status -match 'run') #
 
 Add-ConfigItem json (Invoke-RestMethod www.whitehouse.gov/facts/json).url_title
+Add-ConfigItem data (invoke-RestMethod "http://dougfinke.com/powershellfordevelopers/albums.js")

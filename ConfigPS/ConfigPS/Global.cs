@@ -1,4 +1,5 @@
-﻿using System.Dynamic;
+﻿using System;
+using System.Dynamic;
 using System.IO;
 using System.Management.Automation;
 using System.Reflection;
@@ -40,7 +41,16 @@ namespace ConfigPS
 
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
-            result = ps.Runspace.SessionStateProxy.GetVariable(binder.Name);
+            var psInfo = ps.Runspace.SessionStateProxy.GetVariable(binder.Name);
+
+            if (psInfo is PSObject)
+            {
+                result = (psInfo as PSObject).ImmediateBaseObject;
+            }
+            else
+            {
+                result = psInfo;
+            }
             return true;
         }
     }
